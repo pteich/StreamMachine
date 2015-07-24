@@ -40,3 +40,13 @@ module.exports = class BaseOutput
             @socket = @opts.socket
 
     #----------
+
+    calculateOffset: (req) ->
+
+        if req.param("timestamp")
+            now = new Date
+            Math.floor((now.getTime() - req.param("timestamp")) / 1000) || -1
+        else
+            req.param("offset") || -1
+
+    #----------

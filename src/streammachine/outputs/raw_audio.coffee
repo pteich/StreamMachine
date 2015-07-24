@@ -11,7 +11,7 @@ module.exports = class RawAudio extends BaseOutput
         @pump = true
 
         if @opts.req && @opts.res
-            @client.offsetSecs  = @opts.req.param("offset") || -1
+            @client.offsetSecs = @calculateOffset @opts.req
 
             @opts.res.chunkedEncoding = false
             @opts.res.useChunkedEncodingByDefault = false

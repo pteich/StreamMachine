@@ -17,7 +17,7 @@ module.exports = class Shoutcast extends BaseOutput
         if @opts.req && @opts.res
             # -- startup mode...  sending headers -- #
 
-            @client.offsetSecs  = @opts.req.param("offset") || -1
+            @client.offsetSecs  = @calculateOffset @opts.req
             @client.meta_int    = @stream.opts.meta_interval
 
             @opts.res.chunkedEncoding = false
