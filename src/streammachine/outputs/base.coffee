@@ -45,7 +45,6 @@ module.exports = class BaseOutput
 
         if req.param("timestamp")
             now = new Date
-            @log?.debug "Timestamp: "+ now + " - " + now.getTime()
             Math.floor((now.getTime() - req.param("timestamp")) / 1000) || -1
         else
             req.param("offset") || -1
