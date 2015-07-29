@@ -45,7 +45,8 @@ module.exports = class BaseOutput
 
         if req.param("timestamp")
             now = new Date
-            Math.floor((now.getTime() - req.param("timestamp")) / 1000) || -1
+            requestTs = new Date req.param("timestamp")
+            Math.floor((now.getTime() - requestTs.getTime()) / 1000) || -1
         else
             req.param("offset") || -1
 

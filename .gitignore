@@ -1,3 +1,4 @@
 node_modules/*
 config/dev/
 z/
+/nbproject/private/
